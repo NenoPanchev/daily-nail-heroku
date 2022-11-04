@@ -28,7 +28,7 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, String> 
             "AND CONCAT(COALESCE(c.category_name, ''), COALESCE(s.subcategory_name, '')) LIKE %:category% " +
             "AND u.full_name LIKE %:author% " +
             "AND (CASE WHEN a.activated = true THEN 'true' ELSE 'false' END) LIKE %:activated% " +
-            "AND DATEDIFF(NOW(), a.created) <= :days " +
+            "AND DATEDIFF(day, NOW(), a.created) <= :days " +
             "ORDER BY a.created DESC ", nativeQuery = true)
     Page<String> findAllArticleIdBySearchFilter(@Param("keyWord") String keyword, @Param("category") String category,
                                                 @Param("author") String author, @Param("activated") String activated,
