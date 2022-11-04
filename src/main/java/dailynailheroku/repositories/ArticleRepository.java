@@ -55,7 +55,7 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, String> 
             "WHERE c.category_name LIKE %:categoryNameEnum% " +
             "AND a.posted <= :now " +
             "ORDER BY a.posted DESC " +
-            "LIMIT 1, 4", nativeQuery = true)
+            "LIMIT 4 OFFSET 1", nativeQuery = true)
     List<String> findFourByCategoryNameOrderByPostedDesc(@Param("categoryNameEnum") CategoryNameEnum categoryNameEnum, @Param("now") LocalDateTime now);
 
     @Query(value = "SELECT a.id FROM articles AS a " +
