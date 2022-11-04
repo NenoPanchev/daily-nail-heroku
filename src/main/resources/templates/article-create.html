@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons::head"></head>
+
+<body>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+    <block th:replace="fragments/commons::adminNav"></block>
+
+    <section id="contentSection">
+        <form th:action="@{/articles/create}" class="contact_form"
+              th:object="${articleCreateBindingModel}"
+              method="POST"
+              enctype="multipart/form-data">
+            <div class="row">
+                <div class="contact_area" style="padding-left: 15px; margin-bottom: 10px">
+                    <h2>New Article</h2>
+                </div>
+
+
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="left_content">
+                        <div class="contact_area">
+                            <div id="titleInput">
+                                <div th:each="e : ${#fields.errors('title')}" th:text="${e}" id="titleError"
+                                     class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                </div>
+                                <label for="title">Title</label>
+                                <input id="title" type="text" class="form-control " name="title"
+                                       th:value="*{title}" th:errorclass="is-invalid"
+                                       placeholder="Title" minlength="12" maxlength="150">
+
+                            </div>
+
+                            <div id="textInput">
+                                <div th:each="e : ${#fields.errors('text')}" th:text="${e}" id="textError"
+                                     class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                </div>
+                                <label>Text</label>
+                                <textarea  class="form-control" cols="30" rows="22" placeholder="Text*" name="text"
+                                          th:field="*{text}" th:errorclass="is-invalid"></textarea>
+                                <script>
+                                    tinymce.init({
+                                        selector: '#text',
+                                        plugins: 'link lists media code',
+                                        toolbar: 'alignleft aligncenter alignright alignjustify | formatselect | bullist numlist | outdent indent | link code',
+                                        toolbar_mode: 'floating',
+                                        tinycomments_mode: 'embedded',
+                                        tinycomments_author: 'Author name',
+                                    });
+                                </script>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <aside class="right_content">
+                        <div class="single_sidebar" id="Main image">
+                            <h2><span>Main Image</span></h2>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#url" aria-controls="home"
+                                                                          role="tab" data-toggle="tab">Url</a></li>
+                                <li role="presentation"><a href="#file" aria-controls="profile" role="tab"
+                                                           data-toggle="tab">File</a></li>
+                            </ul>
+                            <div th:each="e : ${#fields.errors('imageUrl')}" th:text="${e}"
+                                 id="imageUrlError"
+                                 class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                            </div>
+                            <div th:each="e : ${#fields.errors('imageFile')}" th:text="${e}"
+                                 id="imageFileError"
+                                 class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                            </div>
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="url">
+                                    <div id="urlInput">
+
+                                        <label for="urlText">Url</label>
+                                        <input id="urlText" type="text" class="form-control " name="imageUrl"
+                                               th:value="*{imageUrl}" th:errorclass="is-invalid"
+                                               placeholder="Url" maxlength="250">
+
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="file">
+                                    <div id="imageInput">
+                                        <label>Image</label>
+                                        <div class="inputfile-box" style="position: relative">
+                                            <input type="file" id="file-upload" name="imageFile" class="form-control-file"
+                                                   th:field="*{imageFile}" th:errorclass="is-invalid"
+                                                    accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="single_sidebar wow fadeInDown">
+                                <h2><span>Category Archive</span></h2>
+
+                                <div th:each="e : ${#fields.errors('categoryName')}" th:text="${e}"
+                                     id="categoryNameError"
+                                     class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                </div>
+                                <select th:field="${articleCreateBindingModel.categoryName}" th:errorclass="is-invalid"
+                                        class="catgArchive">
+                                    <option value="Select Category">Select Category</option>
+                                    <option th:object="${categories}" th:each="c : ${categories}"
+                                            th:value="${c}" th:text="${c}">Life styles
+                                    </option>
+                                </select>
+                            </div>
+                            <div sec:authorize="hasAnyRole('ADMIN', 'EDITOR')" class="single_sidebar wow fadeInDown">
+                                <h2><span>Activate</span></h2>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#deactivated" aria-controls="home"
+                                                                              role="tab" data-toggle="tab">No</a></li>
+                                    <li role="presentation"><a href="#activated" aria-controls="profile" role="tab"
+                                                               data-toggle="tab">Yes</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="deactivated">
+
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="activated">
+                                        <div id="activateInput">
+                                            <div class="form-group">
+                                                <label>Publish on</label>
+                                                <input th:field="*{posted}" th:errorclass="is-invalid"
+                                                       type="datetime-local" class="form-control datetimepicker"
+                                                       name="posted" id="posted">
+                                                <div th:each="e : ${#fields.errors('posted')}" th:text="${e}"
+                                                     id="postedError"
+                                                     class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="Radio buttons">
+
+                                    <label>Top Article</label>
+                                    <div class="btn-group btn-group-custom-toggle" data-toggle="buttons"
+                                         style="width: 100%">
+                                        <label class="btn btn-secondary"
+                                               th:classappend="*{top} ? '': 'active'">
+                                            <input th:field="*{top}" th:errorclass="is-invalid"
+                                                   type="radio" name="comments"
+                                                   th:value="No" autocomplete="off" checked="">
+                                            No
+                                        </label>
+                                        <label class="btn btn-secondary"
+                                               th:classappend="*{top} ? 'active': ''">
+                                            <input th:field="*{top}" th:errorclass="is-invalid"
+                                                   type="radio" name="comments"
+                                                   th:value="Yes" autocomplete="off">
+                                            Yes
+                                        </label>
+                                        <div th:each="e : ${#fields.errors('top')}" th:text="${e}"
+                                             id="topError"
+                                             class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                        </div>
+                                    </div>
+
+
+                                    <label>Disable comments</label>
+                                    <div class="btn-group btn-group-custom-toggle" data-toggle="buttons"
+                                         style="width: 100%">
+                                        <label class="btn btn-secondary active">
+                                            <input th:field="*{disabledComments}" th:errorclass="is-invalid" type="radio" name="comments"
+                                                   th:value="No" autocomplete="off" checked="">
+                                            No
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input th:field="*{disabledComments}" th:errorclass="is-invalid" type="radio" name="comments"
+                                                   th:value="Yes" autocomplete="off">
+                                            Yes
+                                        </label>
+                                        <div th:each="e : ${#fields.errors('disabledComments')}" th:text="${e}"
+                                             id="disabledCommentsError"
+                                             class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </aside>
+
+            </div>
+            <div class="row contact_form">
+                <div class="form-group row text-center submit">
+                    <div class="col-md-4">
+                        <input type="submit" value="Create">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <footer th:replace="fragments/commons::footer"></footer>
+</div>
+<block th:replace="fragments/commons::scripts"></block>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head th:replace="fragments/commons::head"></head>
+<body>
+<div id="preloader">
+  <div id="status">&nbsp;</div>
+</div>
+<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+<div class="container">
+  <block th:replace="fragments/commons::completeHeader"></block>
+
+  <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <div class="left_content">
+          <div class="contact_area">
+            <h2>Registration</h2>
+
+            <form th:action="@{/users/register}" class="contact_form"
+                  th:object="${userRegistrationBindingModel}"
+                  method="POST">
+              <div th:if="${userExistsError}" id="usernameUniqueError"
+                   class="text-light form-text bg-danger rounded alert-danger text-center rounded">
+                Account with that email already exists
+              </div>
+              <div th:each="e : ${#fields.errors('email')}" th:text="${e}" id="emailError"
+                   class="invalid-feedback text-light text-center form-text bg-danger rounded alert-danger">
+                Must be valid email
+              </div>
+              <label for="email">E-mail</label>
+              <input id="email" type="email" class="form-control " name="email"
+                     th:value="*{email}"
+                     th:errorclass="is-invalid"
+                     placeholder="E-mail" required autocomplete="email" autofocus="">
+
+              <div th:each="e : ${#fields.errors('fullName')}" th:text="${e}" id="fullNameError"
+                   class="invalid-feedback text-light text-center form-text bg-danger alert-danger rounded">
+                Name length must be between 5 and 20 characters and passwords should match.
+              </div>
+              <label for="fullName">Name</label>
+              <input id="fullName" type="text" class="form-control " name="fullName"
+                     th:value="*{fullName}"
+                     th:errorclass="is-invalid"
+                     placeholder="Anonymous" maxlength="30" autocomplete="fullName" >
+
+              <div th:each="e : ${#fields.errors('password')}" th:text="${e}" id="passwordError"
+                   class="invalid-feedback text-light text-center form-text bg-danger alert-danger rounded">
+                Password length must be between 4 and 20 characters and passwords should match.
+              </div>
+              <label for="password">Password</label>
+              <input id="password" type="password" class="form-control" name="password"
+                     th:errorclass="is-invalid"
+                     placeholder="Password ..." autocomplete="off"
+                     required minlength="4" maxlength="20">
+
+              <label for="password">Confirm password</label>
+              <input id="confirmPassword" required minlength="4" maxlength="20" type="password" class="form-control" name="confirmPassword"
+                     th:errorclass="is-invalid"
+                     autocomplete="off"  placeholder="Confirm password ...">
+              <div class="form-check">
+                <div th:each="e : ${#fields.errors('acceptedTerms')}" th:text="${e}" id="termsError"
+                     class="text-light form-text bg-danger rounded alert-danger text-center rounded">
+                  Account with that email already exists
+                </div>
+                <input type="checkbox" name="terms" th:field="*{acceptedTerms}" th:errorclass="is-invalid" id="terms">
+                <label class="form-check-label remember" for="terms">I agree with the <a href="/users/terms-and-conditions" class="link" style="text-decoration: underline">Terms and conditions</a></label>
+              </div>
+              <div class="form-group row text-center submit">
+                <div class="col-md-4">
+                  <input type="submit" value="Register">
+                </div>
+              </div>
+              <div class="card-footer">
+                <span class="label">Already have an account?</span>
+                <a href="/users/login" class="reg">Log in</a>
+                <i class="fa fa-home fa-chevron-right"></i>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div th:replace="fragments/commons::popular"></div>
+    </div>
+  </section>
+
+  <footer th:replace="fragments/commons::footer" ></footer>
+</div>
+<block th:replace="fragments/commons::scripts"></block>
+</body>
+</html>
