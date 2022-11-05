@@ -29,7 +29,7 @@ public class StaticWebContentController {
 
     @RequestMapping(value = "/css/images/{file}", method = RequestMethod.GET)
     public ResponseEntity<byte[]> getCssImageFile(@PathVariable("file") String name){
-        ResponseEntity<byte[]> responseEntity = loadResource(".\\static\\css\\images\\"+name,"image/svg+xml");
+        ResponseEntity<byte[]> responseEntity = loadResource(".\\static\\css\\images\\"+name,"image/jpeg");
         return responseEntity;
     }
 
