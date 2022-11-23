@@ -4,12 +4,12 @@
 This is my final project for the Spring Advanced course in SoftUni. 
 It is based on MVC structure. Using Spring Framework, MySQL as database, Thymeleaf template engine, Responsive Web Page Design based on Bootstrap, Cloudinary to store images, TinyMCE: "What you see is what you get" HTML Editor.
 The project is also based on a list of requirements that are detailly described below with some examples of how they're implemented.
-The same project without the Unit/Integration tests is deployed on Heroku with populated data where you can get an idea of the application.
+The same project without the Unit/Integration tests is deployed on Heroku with imported data where you can get an idea of the application.
 
 
 ## Features
-DailyNail is a news website populated with articles spread over different categories and subcategories.
-It offers different sets of views and fully implemented management functionality. The main functionality is centered around creation, editing and posting of articles, daily jokes, setting of date and time when the drafted articles should appear on the website, if they should be in the top panel, should their comments be disabled and other options, regulating comments etc. The application also gathers data of the users preferences by view count of different categories of articles. It offers accounts role management by the admin. The entities data can and is regurarly exported in json files and can be imported in case of need.
+DailyNail is a news website with articles spread over different categories and subcategories.
+It offers different sets of views and fully implemented management functionality. The main functionality is centered around creation, editing and posting of articles, daily jokes, setting of date and time when the drafted articles should appear on the website, if they should be in the top panel, should their comments be disabled and other options, regulating comments etc. The application also gathers data of the users' preferences by view count of different categories of articles. It offers accounts role management by the admin. The entity data can and is regurarly exported to json files and can be imported in case of need or on empty database.
 
 [![HdpXTj1.md.png](https://iili.io/HdpXTj1.md.png)](https://freeimage.host/i/HdpXTj1)
 [![H239TTF.md.png](https://iili.io/H239TTF.md.png)](https://freeimage.host/i/H239TTF)  
@@ -20,7 +20,7 @@ Brief description of user roles
 
 Guests can:
 
-    - View all kind of articles and read comments
+    - View all kinds of articles and read comments
 Logged Users can do what guests can including:
 
     - Write comments under articles
@@ -44,6 +44,14 @@ Admin can do all of the above including:
     - Has access to statistics page about what are the most read categories of articles 
 
 
+## Demo
+
+You can check the project deployed on Heroku: https://daily-nail-heroku.herokuapp.com/
+
+User credentials: 
+e-mail: `user@user.bg` 
+password: 1234
+
 ## General Requirements
 
 Your Web application should use the following technologies, frameworks, and development techniques:
@@ -54,7 +62,7 @@ Your Web application should use the following technologies, frameworks, and deve
 •	The application must have at least 5 independent entity models.                             ✓  
 •	The application must have at least 5 controllers.                                           ✓  
 •	The application must have at least 5 services.                                              ✓  
-•	The application must have at least 5 repositories.                                          ✓  
+•	The application must have at least 5 repositories. ✓ [Go to Project Structure](#structure) 
 
 •	Use **Thymeleaf** template engine or make the Front-End using JavaScript, 			
 consuming REST services from a Web API.                                                         ✓  
@@ -67,12 +75,12 @@ consuming REST services from a Web API.                                         
 •	Implement Responsive Web Page Design based on Bootstrap / Google Material Design.           ✓  
 •	Use the standard Spring Security for managing users and roles.                              ✓  
 •	Your registered users should have at least these roles: user and administrator.             ✓  
-•	User roles should be manageable from the application.                                       ✓  
+•	User roles should be manageable from the application. ✓ [Go to Roles Management](#roles)                          
 •	Make sure the role management is secured and error safe.                                    ✓  
-•	Users and administrators should be able to edit their usernames.                            ✓  
+•	Users and administrators should be able to edit their usernames. ✓ [Go to Profile Edit](#profile)
 
 •	Use Fetch to asynchronously load and display data somewhere in your application.            ✓  
-&nbsp;&nbsp;&nbsp;- Fetching some weather data from `https://api.openweathermap.org` [Go to image](#weather)  
+&nbsp;&nbsp;&nbsp;- **Fetching some weather data from `https://api.openweathermap.org`** [Go to Weather](#weather)  
 •	Write tests (Unit & Integration) for your logic, services, repository query methods, helpers, etc.  
 o	You should have at least 70% coverage on your business logic (Line Coverage). ✓ [Go to Coverage](#tests)       
 
@@ -81,10 +89,10 @@ o	You should have at least 70% coverage on your business logic (Line Coverage). 
 o	When validation data, show appropriate messages to user. ✓  [Go to Validation](#validation)
 
 •	Use at least 2 Interceptors.										                ✓  
-&nbsp;&nbsp;&nbsp;- Using one to count articles views from authorized vs unauthorized users.  
-&nbsp;&nbsp;&nbsp;- And another one for redirecting users to a maintenance page during a specific time /of the backup/.  
+&nbsp;&nbsp;&nbsp;- **Using one to count articles views from authorized vs unauthorized users.**  
+&nbsp;&nbsp;&nbsp;- **And another one for redirecting users to a maintenance page during a specific time /of the backup/.**  
 •	Schedule jobs that impact the whole application running e.g., once/twice a day.		✓  
-&nbsp;- Once a day backs up entities data in json files.  
+&nbsp;&nbsp;&nbsp;- **Once a day backs up entities data in json files.**  
 •	Use ModelМapper or another mapping library.								            ✓  
 
 
@@ -121,17 +129,17 @@ Answer questions about potential functionality outside the scope of the project.
 
 Bonuses – up to 15 %  
 •	Use Spring Event somewhere in your application.	  						            ✓  
-&nbsp;&nbsp;&nbsp;- Using ApplicationStartedEvent that checks and populates prepared data from json files on an empty db.  
+&nbsp;&nbsp;&nbsp;- **Using ApplicationStartedEvent that checks and populates prepared data from json files on an empty db.**  
 •	Implement one or more Advice (AOP).					  				                ✓  
-&nbsp;&nbsp;&nbsp;- *Handling different kinds of errors.*  
+&nbsp;&nbsp;&nbsp;- **Handling different kinds of errors.**  
 •	Implement HATEOAS.  
 •	Using Spring WebFlux.  
 •	Using Angular/React/Vue for Front-End  
 •	Host the application in a cloud environment.								        ✓  
-&nbsp;&nbsp;&nbsp;- Demo on Heroku: https://daily-nail-heroku.herokuapp.com/  
+&nbsp;&nbsp;&nbsp;- **Demo on Heroku:** https://daily-nail-heroku.herokuapp.com/  
 •	Use a file storage cloud API, e.g., Cloudinary, Dropbox,   
         Google Drive or other for storing the files.	                                ✓  
-&nbsp;&nbsp;&nbsp;- Using Cloudinary to store images.  
+&nbsp;&nbsp;&nbsp;- **Using Cloudinary to store images.**  
 •	Implement Microservice architecture in your application.  
 •	Anything that is not described in the assignment is a bonus if it has some practical use.   
 
@@ -139,11 +147,18 @@ Bonuses – up to 15 %
 [![H23zXn4.md.png](https://iili.io/H23zXn4.md.png)](https://freeimage.host/i/H23zXn4)
 [![H23R1hg.md.png](https://iili.io/H23R1hg.md.png)](https://freeimage.host/i/H23R1hg)
 [![H2fgrb4.md.png](https://iili.io/H2fgrb4.md.png)](https://freeimage.host/i/H2fgrb4)
-[![H2BF429.md.png](https://iili.io/H2BF429.md.png)](https://freeimage.host/i/H2BF429)
+
+
+#### Structure
+[![H2BF429.md.png](https://iili.io/H2BF429.md.png)](https://freeimage.host/i/H2BF429)  
+[![H2okpbj.png](https://iili.io/H2okpbj.png)](https://freeimage.host/bg)
+[![H2o8Hps.png](https://iili.io/H2o8Hps.png)](https://freeimage.host/bg)
+[![H2oSxKN.png](https://iili.io/H2oSxKN.png)](https://freeimage.host/bg)  
+[Go back to requirements](#general-requirements)  
 
 #### Weather
 [![H298Dxf.png](https://iili.io/H298Dxf.png)](https://freeimage.host/bg)  
-[Go back to requirements](#general-requirements)
+[Go back to requirements](#general-requirements)  
 
 #### Tests
 Unit testing of services  
@@ -173,11 +188,13 @@ The server side validation is done once in the binding models coming from the in
 [![H22EidJ.png](https://iili.io/H22EidJ.png)](https://freeimage.host/bg)
 [![H220hQ9.png](https://iili.io/H220hQ9.png)](https://freeimage.host/bg)  
 [Go back to requirements](#general-requirements) 
-## Demo
 
-You can check the project deployed on Heroku: https://daily-nail-heroku.herokuapp.com/
+#### Roles
+[![H2nDKKu.md.png](https://iili.io/H2nDKKu.md.png)](https://freeimage.host/i/H2nDKKu)  
+[Go back to requirements](#general-requirements)   
 
-User credentials: 
-e-mail: `user@user.bg` 
-password: 1234
+#### Profile
+[![H2omEge.md.png](https://iili.io/H2omEge.md.png)](https://freeimage.host/i/H2omEge)  
+[Go back to requirements](#general-requirements) 
+
 
