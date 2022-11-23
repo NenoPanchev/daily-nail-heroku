@@ -69,11 +69,10 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public void seedStats() throws FileNotFoundException {
-        StatsEntityExportDto[] statsEntityExportDtos = gson
-                .fromJson(new FileReader(USERS_FILE_PATH), StatsEntityExportDto[].class);
+        StatsEntityExportDto statsEntityExportDto = gson
+                .fromJson(new FileReader(USERS_FILE_PATH), StatsEntityExportDto.class);
 
-        Arrays.stream(statsEntityExportDtos)
-                .map(dto -> modelMapper.map(dto, StatsEntity.class))
-                .forEach(statsRepository::save);
+        statsRepository.save(modelMapper.map(statsEntityExportDto, StatsEntity.class));
+
     }
 }
