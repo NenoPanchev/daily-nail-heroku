@@ -628,7 +628,10 @@ public class ArticleServiceImpl implements ArticleService {
                     .setTotalViews(totalViews);
             categoryViews.add(countModel);
         }
-        return categoryViews;
+        return categoryViews
+                .stream()
+                .sorted((a, b) -> Integer.compare(b.getViews(), a.getViews()))
+                .collect(Collectors.toList());
     }
 
     private String getIdOfLastCreatedArticle() {
