@@ -138,6 +138,8 @@ Bonuses – up to 15 %
 ## Screenshots
 [![H23zXn4.md.png](https://iili.io/H23zXn4.md.png)](https://freeimage.host/i/H23zXn4)
 [![H23R1hg.md.png](https://iili.io/H23R1hg.md.png)](https://freeimage.host/i/H23R1hg)
+[![H2fgrb4.md.png](https://iili.io/H2fgrb4.md.png)](https://freeimage.host/i/H2fgrb4)
+[![H2BF429.md.png](https://iili.io/H2BF429.md.png)](https://freeimage.host/i/H2BF429)
 
 #### Weather
 [![H298Dxf.png](https://iili.io/H298Dxf.png)](https://freeimage.host/bg)  
