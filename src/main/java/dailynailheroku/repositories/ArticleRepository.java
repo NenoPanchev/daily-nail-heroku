@@ -24,7 +24,7 @@ public interface ArticleRepository extends JpaRepository<ArticleEntity, String> 
             "LEFT JOIN categories AS c ON a.category_id = c.id " +
             "LEFT JOIN subcategories AS s ON a.subcategory_id = s.id " +
             "LEFT JOIN users AS u ON a.author_id = u.id " +
-            "WHERE CONCAT(LOWER(a.title), LOWER(a.text)) LIKE LOWER(%:keyWord%) " +
+            "WHERE LOWER(CONCAT(a.title, a.text)) LIKE %:keyWord% " +
             "AND CONCAT(COALESCE(c.category_name, ''), COALESCE(s.subcategory_name, '')) LIKE %:category% " +
             "AND u.full_name LIKE %:author% " +
             "AND (CASE WHEN a.activated = true THEN 'true' ELSE 'false' END) LIKE %:activated% " +
