@@ -1,5 +1,5 @@
 
-![HdpBLp1.jpg](https://iili.io/HdpBLp1.jpg)
+![HdpBLp1.jpg](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675243502/logo_qmzthc.jpg)
 
 This is my final project for the Spring Advanced course in SoftUni. 
 It is based on MVC structure. Using Spring Framework, MySQL as database, Thymeleaf template engine, Responsive Web Page Design based on Bootstrap, Cloudinary to store images, TinyMCE: "What you see is what you get" HTML Editor.
@@ -11,10 +11,10 @@ The same project without the Unit/Integration tests is deployed on Heroku with i
 DailyNail is a news website with articles spread over different categories and subcategories.
 It offers different sets of views and fully implemented management functionality. The main functionality is centered around creation, editing and posting of articles, daily jokes, setting of date and time when the drafted articles should appear on the website, if they should be in the top panel, should their comments be disabled and other options, regulating comments etc. The application also gathers data of the users' preferences by view count of different categories of articles. It offers accounts role management by the admin. The entity data can and is regurarly exported to json files and can be imported in case of need or on empty database.
 
-[![HdpXTj1.md.png](https://iili.io/HdpXTj1.md.png)](https://freeimage.host/i/HdpXTj1)
-[![H239TTF.md.png](https://iili.io/H239TTF.md.png)](https://freeimage.host/i/H239TTF)  
+[![HdpXTj1.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675243703/home_page_ns4727.png)](https://freeimage.host/i/HdpXTj1)
+[![H239TTF.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675243909/football_vrgjer.png)](https://freeimage.host/i/H239TTF)  
 Phone view  
-[![H2FfaAx.png](https://iili.io/H2FfaAx.png)](https://freeimage.host/bg)
+[![H2FfaAx.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244049/phone_view_ulnef5.png)](https://freeimage.host/bg)
 
 Brief description of user roles
 
@@ -144,20 +144,17 @@ Bonuses – up to 15 %
 •	Anything that is not described in the assignment is a bonus if it has some practical use.   
 
 ## Screenshots
-[![H23zXn4.md.png](https://iili.io/H23zXn4.md.png)](https://freeimage.host/i/H23zXn4)
-[![H23R1hg.md.png](https://iili.io/H23R1hg.md.png)](https://freeimage.host/i/H23R1hg)
-[![H2fgrb4.md.png](https://iili.io/H2fgrb4.md.png)](https://freeimage.host/i/H2fgrb4)
+[![H23zXn4.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244261/articles_bvfndd.png)](https://freeimage.host/i/H23zXn4)
+[![H23R1hg.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244330/create_xyzzem.png)](https://freeimage.host/i/H23R1hg)
 
 
 #### Structure
-[![H2BF429.md.png](https://iili.io/H2BF429.md.png)](https://freeimage.host/i/H2BF429)  
-[![H2okpbj.png](https://iili.io/H2okpbj.png)](https://freeimage.host/bg)
-[![H2o8Hps.png](https://iili.io/H2o8Hps.png)](https://freeimage.host/bg)
-[![H2oSxKN.png](https://iili.io/H2oSxKN.png)](https://freeimage.host/bg)  
+[![H2BF429.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244537/diagram_v0pvdr.png)](https://freeimage.host/i/H2BF429)  
+[![H2okpbj.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245369/structure_ikumwx.png)](https://freeimage.host/bg)
 [Go back to requirements](#general-requirements)  
 
 #### Weather
-[![H298Dxf.png](https://iili.io/H298Dxf.png)](https://freeimage.host/bg)  
+[![H298Dxf.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245435/weather_mrhuod.png)](https://freeimage.host/bg)  
 [Go back to requirements](#general-requirements)  
 
 #### Tests
