@@ -146,6 +146,7 @@ Bonuses – up to 15 %
 ## Screenshots
 [![H23zXn4.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244261/articles_bvfndd.png)](https://freeimage.host/i/H23zXn4)
 [![H23R1hg.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675244330/create_xyzzem.png)](https://freeimage.host/i/H23R1hg)
+[![H23R1hg.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675250998/stats_bsdncc.png)](https://freeimage.host/i/H23R1hg)
 
 
 #### Structure
@@ -159,39 +160,35 @@ Bonuses – up to 15 %
 
 #### Tests
 Unit testing of services  
-[![H2H3uxs.png](https://iili.io/H2H3uxs.png)](https://freeimage.host/bg)  
+[![H2H3uxs.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675251740/service_tests_coverage_tdlhef.png)](https://freeimage.host/bg)  
 Controller Integration tests plus service Unit tests  
-[![H2HFnBj.md.png](https://iili.io/H2HFnBj.md.png)](https://freeimage.host/i/H2HFnBj)  
+[![H2HFnBj.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675252089/all_tests_coverage_alzp5q.png)](https://freeimage.host/i/H2HFnBj)  
 [Go back to requirements](#general-requirements)  
 
 #### Errors
-[![H2Hi0sn.md.png](https://iili.io/H2Hi0sn.md.png)](https://freeimage.host/i/H2Hi0sn)
-[![H2HsIh7.md.png](https://iili.io/H2HsIh7.md.png)](https://freeimage.host/i/H2HsIh7)
-[![H2HLAwN.md.png](https://iili.io/H2HLAwN.md.png)](https://freeimage.host/i/H2HLAwN)
-[![H2HDt1t.md.png](https://iili.io/H2HDt1t.md.png)](https://freeimage.host/i/H2HDt1t)  
+[![H2Hi0sn.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245838/403_jsye82.png)](https://freeimage.host/i/H2Hi0sn)
+[![H2HsIh7.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245604/404_fzycec.png)](https://freeimage.host/i/H2HsIh7)
+[![H2HLAwN.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245687/error_dbdw7x.png)](https://freeimage.host/i/H2HLAwN)
+[![H2HDt1t.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675245749/maintenance_ini1do.png)](https://freeimage.host/i/H2HDt1t)  
 [Go back to requirements](#general-requirements) 
 
 #### Validation
 There is client side validation  
-[![H2J7pcB.md.png](https://iili.io/H2J7pcB.md.png)](https://freeimage.host/i/H2J7pcB)
-[![H2JY6fR.md.png](https://iili.io/H2JY6fR.md.png)](https://freeimage.host/i/H2JY6fR)  
+[![H2J7pcB.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675246167/client_side_validation_wcy61l.png)](https://freeimage.host/i/H2J7pcB)  
 The server side validation is done once in the binding models coming from the input another time in the service layer in case the input comes in a different way and in the entities themselves if there are any specific requirements.  
-[![H2dePpe.md.png](https://iili.io/H2dePpe.md.png)](https://freeimage.host/i/H2dePpe)
-[![H2d8p3l.md.png](https://iili.io/H2d8p3l.md.png)](https://freeimage.host/i/H2d8p3l)
-[![H2deq79.md.png](https://iili.io/H2deq79.md.png)](https://freeimage.host/i/H2deq79)
-[![H22KiQt.md.png](https://iili.io/H22KiQt.md.png)](https://freeimage.host/i/H22KiQt)
-[![H22oXyJ.md.png](https://iili.io/H22oXyJ.md.png)](https://freeimage.host/i/H22oXyJ)
-[![H22YQb1.md.png](https://iili.io/H22YQb1.md.png)](https://freeimage.host/i/H22YQb1)
-[![H22EidJ.png](https://iili.io/H22EidJ.png)](https://freeimage.host/bg)
-[![H220hQ9.png](https://iili.io/H220hQ9.png)](https://freeimage.host/bg)  
+[![H2dePpe.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675246419/register_cjtsbm.png)](https://freeimage.host/i/H2dePpe)
+[![H2d8p3l.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675246544/change_password_xuryb2.png)](https://freeimage.host/i/H2d8p3l)
+[![H2deq79.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675246655/create_article_lw73nt.png)](https://freeimage.host/i/H2deq79)
+[![H22KiQt.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675246784/main_image_v5kp6v.png)](https://freeimage.host/i/H22KiQt)
+[![H22oXyJ.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675250283/acc_exists_xzbrni.png)](https://freeimage.host/i/H22oXyJ)  
 [Go back to requirements](#general-requirements) 
 
 #### Roles
-[![H2nDKKu.md.png](https://iili.io/H2nDKKu.md.png)](https://freeimage.host/i/H2nDKKu)  
+[![H2nDKKu.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675250916/manage_acc_lvxop1.png)](https://freeimage.host/i/H2nDKKu)  
 [Go back to requirements](#general-requirements)   
 
 #### Profile
-[![H2omEge.md.png](https://iili.io/H2omEge.md.png)](https://freeimage.host/i/H2omEge)  
+[![H2omEge.md.png](https://res.cloudinary.com/dzjgi2c7y/image/upload/v1675251506/profile_oiwddi.png)](https://freeimage.host/i/H2omEge)  
 [Go back to requirements](#general-requirements) 
 
 
