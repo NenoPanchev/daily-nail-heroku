@@ -13,7 +13,7 @@ spring:
     password: ${JDBC_DATABASE_PASSWORD:}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     open-in-view: false
     properties:
       hibernate:

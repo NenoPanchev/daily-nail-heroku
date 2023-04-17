@@ -30,13 +30,13 @@ public class LogEntity extends BaseEntity {
     }
 
 
-    @Column
+    @Column(name = "user_email")
     public String getUser() {
         return user;
     }
 
 
-    @Column
+    @Column(name = "log_time")
     public LocalDateTime getTime() {
         return time;
     }
