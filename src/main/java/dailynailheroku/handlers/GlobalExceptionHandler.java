@@ -1,5 +1,6 @@
 package dailynailheroku.handlers;
 
+import dailynailheroku.services.LogService;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,30 +12,38 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    private final LogService logService;
+
+    public GlobalExceptionHandler(LogService logService) {
+        this.logService = logService;
+    }
 
     @ExceptionHandler({RuntimeException.class})
-    public String handleUncaughtErrors(Exception e) {
+    public String handleUncaughtErrors(Exception e, HttpServletRequest request) {
         System.out.println(e.getMessage());
-                        return "redirect:/error";
+        logService.createLog(request, e.getMessage());
+        return "redirect:/error";
     }
 
     @ExceptionHandler({ObjectNotFoundException.class, NoHandlerFoundException.class})
-    public String notFound(Exception e, HttpServletRequest httpServletRequest) {
+    public String notFound(Exception e, HttpServletRequest request) {
         System.out.println(e.getMessage());
+        logService.createLog(request, e.getMessage());
+
         return "redirect:/404";
     }
 
     @ExceptionHandler({CustomAccessDeniedHandler.class})
-    public String denied(AccessDeniedException deniedException) {
-        System.out.println(deniedException.getMessage());
-
+    public String denied(AccessDeniedException e, HttpServletRequest request) {
+        System.out.println(e.getMessage());
+        logService.createLog(request, e.getMessage());
         return "redirect:/403";
     }
 
     @ExceptionHandler({AuthenticationException.class})
-    public String auth(AuthenticationException authenticationException) {
-        System.out.println(authenticationException.getMessage());
-
+    public String auth(AuthenticationException e, HttpServletRequest request) {
+        System.out.println(e.getMessage());
+        logService.createLog(request, e.getMessage());
         return "redirect:/403";
     }
 }

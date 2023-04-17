@@ -46,10 +46,4 @@ public class ApplicationConfig implements WebMvcConfigurer {
     public FileIOUtil fileIOUtil() {
         return new FileIOUtilImpl();
     }
-
-    @Bean
-    public AccessDeniedHandler accessDeniedHandler(){
-        return new CustomAccessDeniedHandler();
-    }
-
 }
