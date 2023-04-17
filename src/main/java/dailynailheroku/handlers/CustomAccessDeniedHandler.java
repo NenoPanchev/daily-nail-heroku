@@ -26,12 +26,12 @@ public class CustomAccessDeniedHandler extends Throwable implements AccessDenied
 
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication!=null) {
-            LOG.info("User '" + authentication.getName()
-            + "' attempted to access the URL: "
-            + request.getRequestURI());
-        }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication!=null) {
+//            LOG.info("User '" + authentication.getName()
+//            + "' attempted to access the URL: "
+//            + request.getRequestURI());
+//        }
         logService.createLog(request, e.getMessage());
 
         httpServletResponse.sendRedirect(request.getContextPath()+ "/access-denied");
