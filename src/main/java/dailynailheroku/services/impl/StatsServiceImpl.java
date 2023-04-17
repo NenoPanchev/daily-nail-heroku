@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Arrays;
 
+import static dailynailheroku.constants.GlobalConstants.STATS_FILE_PATH;
 import static dailynailheroku.constants.GlobalConstants.USERS_FILE_PATH;
 
 @Service
@@ -73,7 +74,7 @@ public class StatsServiceImpl implements StatsService {
             return;
         }
         StatsEntityExportDto statsEntityExportDto = gson
-                .fromJson(new FileReader(USERS_FILE_PATH), StatsEntityExportDto.class);
+                .fromJson(new FileReader(STATS_FILE_PATH), StatsEntityExportDto.class);
 
         statsRepository.save(modelMapper.map(statsEntityExportDto, StatsEntity.class));
 
